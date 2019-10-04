@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div id="mainToolbar" class="paper-header">
       <div class="site-width layout horizontal">
         <a href="/">
-          <img src="/images/logo.png" class="logo-devs" alt="Codelabs Logo">
+          <img src="/images/googlecloud.png" class="logo-devs" alt="Google Cloud Logo">
         </a>
         <div id="searchbar">
           <paper-input-container no-label-float>
@@ -116,26 +116,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <header id="banner" {% if view.id != 'default' -%}down{%- else %}down$="[[_toBoolean(selectedFilter)]]"{%- endif %}>
       <div class="site-width">
         {% if view.id == 'default' %}
-        <h2 class="banner-title">Welcome to Codelabs!</h2>
+        <h2 class="banner-title">Apigee API Engineer Training Labs (Prerelease)</h2>
         <div class="banner-description"
              data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
           <p class="banner-info">
-            Codelabs provide a guided, tutorial, hands-on
-            coding experience. Most codelabs will step you through the process
-            of building a small application, or adding a new feature to an
-            existing application.
+	    These labs will help you learn how to develop on the Apigee API Management platform. The labs are associated with Apigee's official API Engineer class.
             <br>
             <a href="https://github.com/googlecodelabs/tools">Codelab tools on GitHub</a>
           </p>
         {%- else -%}
-          <div class="banner-description">
-            <img id="logo" src="{{view.logoUrl}}" alt="Event logo">
-            <div class="banner-meta">
-              <h3>{{view.title}}</h3>
+        <h2 class="banner-title">Apigee API Engineer Training Labs (Prerelease)</h2>
+        <div class="banner-description"
+             data-filter-selected$="{% raw %}[[_toBoolean(selectedFilter)]]{% endraw %}">
+          <p class="banner-info">
+	    These labs will help you learn how to develop on the Apigee API Management platform. The labs are associated with Apigee's official API Engineer class.
               {% if view.description -%}
-                <p>{{view.description}}</p>
+                <br>{{view.description}}
               {%- endif %}
-            </div>
+	      <br>
+            <a href="https://github.com/googlecodelabs/tools">Codelab tools on GitHub</a>
+          </p>
         {%- endif %}
           </div>
       </div>
@@ -152,26 +152,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </div>
 
         {% if view.id == 'default' %}
-        <paper-dropdown-menu
-          label="Choose an event"
-          class="dropdown-filter"
-          no-label-float
-          noink no-animations
-        >
-          <paper-listbox
-            id="eventList"
-            slot="dropdown-content"
-            class="dropdown-content"
-          >
-            {%- for view in views -%}
-              {%- if view.id != 'default' && !view.hidden -%}
-                <a href="/{{view.url}}/" tabindex="-1">
-                  <paper-item>{{view.title}}</paper-item>
-                </a>
-              {%- endif -%}
-            {%- endfor %}
-          </paper-listbox>
-        </paper-dropdown-menu>
         {% endif %}
 
         {%- if showcats -%}
@@ -188,6 +168,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             on-iron-activate="onCategoryActivate"
             attr-for-selected="filter"
           >
+                  <paper-item filter="">ALL</paper-item>
               {% for category in categories -%}
                 {%- if categoryHasShowableCodelabs(category, codelabs) -%}
                   <paper-item filter="{{category}}">{{category}}</paper-item>
@@ -238,27 +219,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <footer id="footer">
       <div class="footer-wrapper site-width">
         <div class="link-list">
-          <label>Connect</label>
+          <label>Technical Links</label>
           <ul>
-            <li><a href="https://www.example.com/">Example</a></li>
+            <li><a href="https://login.apigee.com/" target="_blank">Apigee Login</a></li>
+            <li><a href="https://apigeek.page.link/learning-guide" target="_blank">Apigee API Platform Learning Guide</a></li>
+            <li><a href="https://cloud.google.com/certification/apigee-api-engineer/" target="_blank">Apigee API Engineer Certification</a></li>
           </ul>
         </div>
         <div class="link-list">
-          <label>Programs</label>
-          <ul>
-            <li><a href="https://www.example.com/">Example</a></li>
-          </ul>
-        </div>
-        <div class="link-list">
-          <label>Developer Consoles</label>
-          <ul>
-            <li><a href="https://www.example.com/">Example</a></li>
-          </ul>
-        </div>
-        <div class="link-list">
-          <label>Explore</label>
+          <label>About Apigee</label>
            <ul>
-            <li><a href="https://www.example.com/">Example</a></li>
+            <li><a href="https://cloud.google.com/apigee/" target="_blank">Apigee Homepage</a></li>
+            <li><a href="https://docs.apigee.com/" target="_blank">Apigee Docs</a></li>
+            <li><a href="https://community.apigee.com" target="_blank">Apigee Community</a></li>
           </ul>
         </div>
       </div>
@@ -267,9 +240,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="footerbar">
       <div class="site-width layout horizontal center justified">
         <span>
-          <a href="https://example.com">Terms</a>
-          &nbsp; | &nbsp;
-          <a href="https://example.com">Privacy</a>
         </span>
       </div>
     </div>
